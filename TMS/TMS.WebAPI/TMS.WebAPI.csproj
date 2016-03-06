@@ -187,6 +187,9 @@
     <Compile Include="Infrastructure\ApplicationDbContext.cs" />
     <Compile Include="Infrastructure\ApplicationUser.cs" />
     <Compile Include="Infrastructure\ApplicationUserManager.cs" />
+    <Compile Include="Infrastructure\Repositories\Task\ITaskRepository.cs" />
+    <Compile Include="Infrastructure\Repositories\Task\TaskItem.cs" />
+    <Compile Include="Infrastructure\Repositories\Task\TaskRepository.cs" />
     <Compile Include="Migrations\201603051241299_InitialCreate.cs" />
     <Compile Include="Migrations\201603051241299_InitialCreate.Designer.cs">
       <DependentUpon>201603051241299_InitialCreate.cs</DependentUpon>
