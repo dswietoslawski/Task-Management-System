@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;
 using Microsoft.AspNet.Http;
@@ -14,6 +15,8 @@ using Microsoft.Extensions.PlatformAbstractions;
 using Newtonsoft.Json.Serialization;
 using TMS.API.Infrastructure;
 using TMS.API.Models;
+using TMS.API.Repositories;
+using TMS.API.ViewModels;
 
 namespace TMS.API {
     public class Startup {
@@ -40,12 +43,17 @@ namespace TMS.API {
             svcs.AddIdentity<TmsUser, IdentityRole>()
                 .AddEntityFrameworkStores<TmsContext>();
 
+
+            svcs.AddCors(options => options.AddPolicy("AllowAll", p => p.AllowAnyOrigin()));
+
+
             svcs.AddMvc()
                 .AddJsonOptions(opts => {
                     opts.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
                 });
 
             svcs.AddScoped<TmsInitializer>();
+            svcs.AddScoped<ITaskRepository, TaskRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -63,7 +71,12 @@ namespace TMS.API {
             app.UseIISPlatformHandler();
             app.UseStaticFiles();
 
+            Mapper.Initialize(config => {
+                config.CreateMap<UserTask, UserTaskViewModel>().ReverseMap();
+            });
+
             app.UseIdentity();
+            app.UseCors("AllowAll");
             app.UseMvc();
 
             initializer.SeedAsync().Wait();

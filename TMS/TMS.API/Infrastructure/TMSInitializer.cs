@@ -9,8 +9,8 @@ namespace TMS.API.Infrastructure
 {
     public class TmsInitializer
     {
-        private TmsContext _ctx;
-        private UserManager<TmsUser> _userMgr;
+        private readonly TmsContext _ctx;
+        private readonly UserManager<TmsUser> _userMgr;
 
         public TmsInitializer(TmsContext ctx, UserManager<TmsUser> userMgr )
         {
@@ -29,9 +29,9 @@ namespace TMS.API.Infrastructure
                 var result = await _userMgr.CreateAsync(user, "Passw0rd!");
                 if (!result.Succeeded) throw new InvalidProgramException("Failed to create seed user");
             }
-            _ctx.Tasks.Add(new UserTask() {
-                Name = "What"
-            });
+            //_ctx.Tasks.Add(new UserTask() {
+            //    Name = "What"
+            //});
             _ctx.SaveChanges();
         }
     }
