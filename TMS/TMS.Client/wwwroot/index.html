@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8" />
+
+    <link rel="stylesheet" href="lib/bootstrap-css/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="lib/bootstrap-css/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="lib/bootswatch/superhero/bootstrap.min.css" />
+    <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css" />
+
+
+    <script src="lib/angular/angular.min.js"></script>
+    <script src="lib/bootstrap-css/js/bootstrap.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<body>
+    <div class="col-md-6">
+        <form>
+            <div class="form-group">
+                <label>Type something</label>
+                <input type="text" ng-model="item.name" class="form-control"/>
+                <p>
+                    <i>{{item.name}}</i>
+                </p>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

@@ -24,7 +24,7 @@ namespace TMS.API {
             _env = env;
             var builder = new ConfigurationBuilder()
                 .SetBasePath(appEnv.ApplicationBasePath)
-                    .AddJsonFile("config.json")
+                .AddJsonFile("config.json")
                     .AddEnvironmentVariables();
 
             _config = builder.Build();
