@@ -41,8 +41,8 @@ namespace TMS.API {
                 .AddDbContext<TmsContext>();
 
             svcs.AddIdentity<TmsUser, IdentityRole>()
-                .AddEntityFrameworkStores<TmsContext>();
-
+                .AddEntityFrameworkStores<TmsContext>()
+                .AddDefaultTokenProviders();
 
             svcs.AddCors(options => options.AddPolicy("AllowAll", p => p.AllowAnyOrigin()));
 

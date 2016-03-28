@@ -1,0 +1,55 @@
+.navbar-brand {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    text-align: center;
+    margin: auto;
+}
+
+.content-body {
+}
+
+.navbar-wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100% !important;
+    left: 0;
+    z-index: 20;
+}
+
+    /* Flip around the padding for proper display in narrow viewports */
+    .navbar-wrapper > .container {
+        padding-right: 0;
+        padding-left: 0;
+        width: inherit;
+    }
+
+.container {
+    width: 100%;
+    background: black;
+    margin: 0;
+}
+
+html,
+body,
+.container {
+    width: 100%;
+    min-height: 100%;
+    background: black;
+}
+
+.footer {
+    background: darkred;
+}
+
+body{
+	padding-top: 70px;
+}
+
+
+.btn {
+    border: 0.01px darkslategrey ridge;
+}
+

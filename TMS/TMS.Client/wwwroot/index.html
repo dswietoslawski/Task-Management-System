@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="lib/bootswatch/superhero/bootstrap.min.css" />
     <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css" />
     <link rel="stylesheet" href="lib/angular-gridster/dist/angular-gridster.min.css" />
+    <link rel="stylesheet" href="css/mycss.css" />
 
     <script src="lib/jquery/src/../dist/jquery.min.js"></script>
     <script src="lib/jquery-migrate/jquery-migrate.min.js"></script>
@@ -21,17 +22,42 @@
     <script src="app.js"></script>
 </head>
 <body ng-controller="mainController as mctrl">
-    <section>
-        <div class="col-md-6">
-            <div ng-controller="gridsterController as gridsterCtrl">
-                {{title}}
-                <div gridster="gridsterCtrl.gridsterOpts" class="list-group">
-                    <ul class="list-group-item text-primary">
-                        <li ng-repeat="task in mctrl.tasks" gridster-item="task" style="background: yellow" class="well">{{task.row}}, {{task.col}}</li>
+    <div class="navbar-wrapper">
+        <header>
+            <nav class="navbar navbar-inverse navbar-static-top" style="background: darkred" role="navigation">
+                <div class="container-fluid">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li>
+                            <a class="btn">
+                                <i class="fa fa-navicon"></i> Menu
+                            </a>
+                        </li>
                     </ul>
+                    <a class="navbar-brand">Welcome</a>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" class="btn btn-sm">
+                                <i class="fa fa-user"></i> Login
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <div class="content-body">
+            <div class="col-md-6">
+                <div ng-controller="gridsterController as gridsterCtrl">
+                    <div gridster="gridsterCtrl.gridsterOpts" class="list-group">
+                        <ul class="text-primary">
+                            <li ng-repeat="task in mctrl.tasks" gridster-item="task" style="background: yellow">{{task.row}}, {{task.col}}</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+        <div class="container-fluid navbar-fixed-bottom footer">
+            <a class="navbar-brand">Welcome</a>
+        </div>
+    </div>
 </body>
 </html>
