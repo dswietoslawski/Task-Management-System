@@ -70,7 +70,15 @@ namespace TMS.API {
             }
 
             app.UseJwtAuthentication();
-            
+            app.UseOpenIdConnectServer(options =>
+            {
+                options.AllowInsecureHttp = true;
+                options.AuthorizationEndpointPath = PathString.Empty;
+                options.TokenEndpointPath = "/connect/token";
+
+                options.Provider = new AuthorizationProvider();
+            });
+
             app.UseIISPlatformHandler();
             app.UseStaticFiles();
 

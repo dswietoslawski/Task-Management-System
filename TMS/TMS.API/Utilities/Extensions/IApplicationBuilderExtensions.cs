@@ -33,7 +33,6 @@ namespace TMS.API.Utilities.Extensions
             {
                 options.Audience = "localhost:49687";
                 options.Authority = "localhost:49687";
-                options.Configuration.TokenEndpoint = "localhost:49687/api/token";
                 options.AutomaticAuthenticate = true;
             });
         }
