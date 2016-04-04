@@ -17,6 +17,7 @@ using TMS.API.Infrastructure;
 using TMS.API.Models;
 using TMS.API.Repositories;
 using TMS.API.ViewModels;
+using TMS.API.Utilities.Extensions;
 
 namespace TMS.API {
     public class Startup {
@@ -68,6 +69,8 @@ namespace TMS.API {
                 app.UseExceptionHandler("/Error");
             }
 
+            app.UseJwtAuthentication();
+            
             app.UseIISPlatformHandler();
             app.UseStaticFiles();
 
@@ -81,6 +84,7 @@ namespace TMS.API {
 
             initializer.SeedAsync().Wait();
         }
+
 
         // Entry point for the application.
         public static void Main(string[] args) => WebApplication.Run<Startup>(args);
