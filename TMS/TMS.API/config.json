@@ -1,5 +1,0 @@
-﻿{
-  "TmsDb": {
-    "ConnectionString": "Server=(localdb)\\MSSQLLocalDB;Database=TmsDatabase;Trusted_Connection=True;MultipleActiveResultsets=true;Integrated Security=False"
-  }
-}
